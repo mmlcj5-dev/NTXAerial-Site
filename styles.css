@@ -32,11 +32,23 @@ body::before {
 }
 
 /* --------------------------------------------------
-   HERO SECTION
+   HERO SECTION (FULL SCREEN DESKTOP)
 -------------------------------------------------- */
 
 .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 40px 20px;
+}
+
+/* Mobile override */
+@media (max-width: 900px) {
+    .hero {
+        min-height: auto;
+        padding: 40px 20px;
+    }
 }
 
 /* Logo */
