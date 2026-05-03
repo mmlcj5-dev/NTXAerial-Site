@@ -1,121 +1,197 @@
-/* --- Global Reset --- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* --------------------------------------------------
+   GLOBAL BASE STYLES
+-------------------------------------------------- */
 
-/* --- Body Background --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
-  background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #ffffff;
-  text-align: center;
-  padding: 20px;
+    font-family: 'Inter', Arial, sans-serif;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: relative;
 }
 
-/* --- Logo (Improved Sizing) --- */
+/* Cinematic dark overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: -1;
+}
+
+/* Page wrapper */
+.page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --------------------------------------------------
+   HERO SECTION
+-------------------------------------------------- */
+
+.hero {
+    padding: 40px 20px;
+}
+
+/* Logo */
 .logo img {
-    max-width: 280px;   /* keeps logo from getting huge */
-    width: 100%;        /* scales smoothly on mobile */
+    max-width: 240px;
+    width: 100%;
     height: auto;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 15px auto;
     display: block;
 }
 
-/* --- Top Tagline --- */
+/* Taglines */
 .tagline {
-  text-align: center;
-  font-size: 1.6rem;
-  font-weight: 300;
-  color: #ffffff;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  opacity: 0.9;
-  letter-spacing: 0.5px;
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin: 5px 0;
+    opacity: 0.95;
+    letter-spacing: 0.5px;
 }
 
-/* --- Main Card Container --- */
-.card {
-  background: rgba(0, 0, 0, 0.55);
-  padding: 25px;
-  border-radius: 12px;
-  max-width: 650px;
-  margin: 30px auto;
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+.subtagline {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 5px 0 10px 0;
+    opacity: 0.9;
 }
 
-/* --- Headings & Paragraphs --- */
-h1 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
+.description {
+    font-size: 1.2rem;
+    margin: 10px 0 15px 0;
+    opacity: 0.9;
 }
 
-p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  line-height: 1.5;
+.details {
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.85;
+    margin-bottom: 25px;
 }
 
-/* --- Buttons --- */
-.button-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 25px;
+/* --------------------------------------------------
+   PILLS
+-------------------------------------------------- */
+
+.pill-row {
+    margin: 15px 0 25px 0;
 }
 
-.button {
-  padding: 10px 18px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  font-size: 0.95rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  transition: 0.2s;
+.pill {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin: 4px;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.button:hover {
-  background: rgba(255, 255, 255, 0.3);
+/* --------------------------------------------------
+   SECTIONS
+-------------------------------------------------- */
+
+.section {
+    margin: 30px 0;
 }
 
-/* --- Section Titles --- */
 .section-title {
-  font-size: 1.4rem;
-  margin-top: 25px;
-  margin-bottom: 10px;
-  font-weight: bold;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    opacity: 0.95;
 }
 
-/* --- List Items --- */
-ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 20px;
+.list {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    list-style: none;
+    padding: 0;
 }
 
-ul li {
-  margin: 8px 0;
-  font-size: 1.05rem;
+/* --------------------------------------------------
+   BUTTONS
+-------------------------------------------------- */
+
+.cta-row {
+    margin: 25px 0;
 }
 
-/* --- Bottom Tagline --- */
-.sub-tagline {
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 300;
-  color: #ffffff;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  opacity: 0.85;
-  letter-spacing: 0.4px;
+.btn-primary,
+.btn-ghost {
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.25s ease;
+    margin: 6px;
 }
 
-/* --- Footer --- */
-footer {
-  margin-top: 20px;
-  font-size: 0.9rem;
-  opacity: 0.8;
+/* Frosted primary button */
+.btn-primary {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+.btn-primary:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: #ffffff;
+}
+
+/* Ghost button */
+.btn-ghost {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+}
+
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
+
+.footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+.footer span {
+    display: block;
+    margin: 4px 0;
+}
+
+/* --------------------------------------------------
+   MOBILE RESPONSIVE
+-------------------------------------------------- */
+
+@media (max-width: 600px) {
+    .tagline {
+        font-size: 1.6rem;
+    }
+    .subtagline {
+        font-size: 1.2rem;
+    }
+    .description {
+        font-size: 1.1rem;
+    }
+    .pill {
+        font-size: 0.85rem;
+    }
 }
