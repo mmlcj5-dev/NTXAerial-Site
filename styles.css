@@ -15,11 +15,13 @@ body {
   padding: 20px;
 }
 
-/* --- Logo --- */
+/* --- Logo (Improved Sizing) --- */
 .logo img {
-  width: 120px;   /* FIXED SIZE */
-  height: auto;
-  margin-bottom: 10px;
+    max-width: 280px;   /* keeps logo from getting huge */
+    width: 100%;        /* scales smoothly on mobile */
+    height: auto;
+    margin: 0 auto 20px auto;
+    display: block;
 }
 
 /* --- Top Tagline --- */
