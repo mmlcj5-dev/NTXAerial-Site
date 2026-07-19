@@ -1,209 +1,158 @@
-/* --------------------------------------------------
-   GLOBAL BASE STYLES
--------------------------------------------------- */
+/* ==================================================
+   NTX AERIAL — shared "sectional chart" design system
+   Used by index.html and ntxaerial-it-consulting.html
+   ================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+:root{
+  --paper:#F3F6F8;        /* chart paper */
+  --ink:#13293F;          /* deep navy ink */
+  --ink-soft:#3D5670;     /* slate */
+  --chart-blue:#2E6AA0;   /* airspace blue */
+  --chart-magenta:#A83A6E;/* sectional magenta */
+  --line:#C6D2DC;         /* hairline chart line */
+  --white:#FFFFFF;
+  --display:"Saira",sans-serif;
+  --body:"Public Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:56px 56px;
+  background-attachment:fixed;
+  line-height:1.6;
+  font-size:16px;
+}
+a{color:var(--chart-blue)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
-body {
-    font-family: 'Inter', Arial, sans-serif;
-    background: url('background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    position: relative;
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(243,246,248,.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1.5px solid var(--ink);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink)}
+.brand-name{font-family:var(--display);font-weight:800;font-stretch:75%;font-size:1.35rem;letter-spacing:.04em;text-transform:uppercase}
+.brand-sub{font-family:var(--mono);font-size:.7rem;color:var(--chart-magenta);letter-spacing:.12em;text-transform:uppercase}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft)}
+.nav-links a:hover{color:var(--chart-magenta)}
+.btn{
+  display:inline-block;font-family:var(--display);font-weight:600;font-stretch:75%;
+  letter-spacing:.06em;text-transform:uppercase;font-size:.9rem;
+  padding:11px 22px;border:1.5px solid var(--ink);color:var(--ink);
+  text-decoration:none;background:var(--white);
+  box-shadow:3px 3px 0 var(--ink);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+.btn-magenta{background:var(--chart-magenta);color:var(--white);border-color:var(--chart-magenta);box-shadow:3px 3px 0 var(--ink)}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 56px;border-bottom:1.5px solid var(--ink);background:transparent}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--chart-magenta);margin-bottom:18px}
+h1{
+  font-family:var(--display);font-weight:800;font-stretch:75%;
+  font-size:clamp(2.4rem,5.2vw,3.9rem);line-height:1.04;
+  text-transform:uppercase;letter-spacing:.01em;
+}
+h1 .accent{color:var(--chart-magenta)}
+.hero p.lede{margin-top:20px;font-size:1.08rem;color:var(--ink-soft);max-width:34em}
+.hero-ctas{margin-top:30px;display:flex;gap:16px;flex-wrap:wrap}
+.hero-note{margin-top:16px;font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);letter-spacing:.05em}
+
+/* airspace rings signature (consulting) */
+.rings{width:100%;height:auto;display:block}
+.rings text{font-family:var(--mono)}
+
+/* logo panel signature (home) */
+.logo-panel{border:1.5px solid var(--ink);box-shadow:6px 6px 0 var(--ink);background:var(--ink);line-height:0}
+.logo-panel img{display:block;width:100%;height:auto}
+
+/* mono chips (home hero) */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chip{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-soft);background:var(--white);border:1px solid var(--ink);padding:6px 12px;
 }
 
-/* Cinematic dark overlay */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    z-index: -1;
+/* ---------- sections ---------- */
+section{padding:64px 0}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:36px;border-bottom:1.5px solid var(--ink);padding-bottom:12px}
+.sec-code{font-family:var(--mono);font-size:.8rem;color:var(--chart-magenta);letter-spacing:.1em}
+h2{font-family:var(--display);font-weight:700;font-stretch:75%;font-size:clamp(1.5rem,3vw,2.1rem);text-transform:uppercase;letter-spacing:.03em}
+
+/* service / card grid */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--ink);border:1.5px solid var(--ink)}
+.svc{background:var(--white);padding:28px 26px}
+.svc h3{font-family:var(--display);font-weight:700;font-stretch:75%;font-size:1.15rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px}
+.svc .tag{font-family:var(--mono);font-size:.68rem;color:var(--chart-blue);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:8px}
+.svc p{font-size:.95rem;color:var(--ink-soft)}
+.svc ul{margin-top:12px;padding-left:0;list-style:none}
+.svc li{font-size:.88rem;color:var(--ink);padding:5px 0;border-top:1px dashed var(--line);font-family:var(--mono)}
+.svc li::before{content:"▸ ";color:var(--chart-magenta)}
+
+/* flight plan / process */
+.plan{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;position:relative}
+.leg{background:var(--white);border:1.5px solid var(--ink);padding:26px 24px;position:relative}
+.leg-code{font-family:var(--mono);font-size:.72rem;color:var(--chart-magenta);letter-spacing:.14em}
+.leg h3{font-family:var(--display);font-weight:700;font-stretch:75%;font-size:1.1rem;text-transform:uppercase;margin:8px 0 10px}
+.leg p{font-size:.92rem;color:var(--ink-soft)}
+.leg .fee{margin-top:14px;font-family:var(--mono);font-size:.72rem;color:var(--chart-blue);letter-spacing:.06em;border-top:1px dashed var(--line);padding-top:10px}
+
+/* sectors / who it's for */
+.sectors{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.sector{border-left:4px solid var(--chart-magenta);background:var(--white);border-top:1.5px solid var(--ink);border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:26px}
+.sector.blue{border-left-color:var(--chart-blue)}
+.sector h3{font-family:var(--display);font-weight:700;font-stretch:75%;font-size:1.1rem;text-transform:uppercase;margin-bottom:10px}
+.sector p{font-size:.95rem;color:var(--ink-soft)}
+.sector .sig{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--chart-magenta)}
+.sector.blue .sig{color:var(--chart-blue)}
+
+/* about strip (dark) */
+.about{background:var(--ink);color:var(--paper);border-top:1.5px solid var(--ink)}
+.about .sec-head{border-color:var(--paper)}
+.about h2{color:var(--white)}
+.about .sec-code{color:#E58BB4}
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:start}
+.about p{color:#C7D4E0;font-size:1rem;margin-bottom:14px}
+.creds{border:1px dashed #4A667F;padding:22px;list-style:none}
+.creds h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#E58BB4;margin-bottom:12px}
+.creds li{list-style:none;font-family:var(--mono);font-size:.82rem;color:#C7D4E0;padding:6px 0;border-top:1px solid #2A415C}
+.creds li::before{content:"✓ ";color:#7FB2E0}
+
+/* contact */
+.contact{text-align:center;padding:80px 0}
+.contact h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:14px}
+.contact p{color:var(--ink-soft);max-width:36em;margin:0 auto 28px}
+.contact .email{font-family:var(--mono);font-size:.95rem;margin-top:18px;display:block;color:var(--ink)}
+
+/* ---------- footer ---------- */
+footer{border-top:1.5px solid var(--ink);padding:22px 0;font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);letter-spacing:.06em}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+:focus-visible{outline:3px solid var(--chart-magenta);outline-offset:2px}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .btn{transition:none}
 }
-
-/* Page wrapper */
-.page {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* --------------------------------------------------
-   HERO SECTION (FULL SCREEN DESKTOP)
--------------------------------------------------- */
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 40px 20px;
-}
-
-/* Mobile override */
-@media (max-width: 900px) {
-    .hero {
-        min-height: auto;
-        padding: 40px 20px;
-    }
-}
-
-/* Logo */
-.logo img {
-    max-width: 240px;
-    width: 100%;
-    height: auto;
-    margin: 0 auto 15px auto;
-    display: block;
-}
-
-/* Taglines */
-.tagline {
-    font-size: 1.8rem;
-    font-weight: 300;
-    margin: 5px 0;
-    opacity: 0.95;
-    letter-spacing: 0.5px;
-}
-
-.subtagline {
-    font-size: 1.4rem;
-    font-weight: 400;
-    margin: 5px 0 10px 0;
-    opacity: 0.9;
-}
-
-.description {
-    font-size: 1.2rem;
-    margin: 10px 0 15px 0;
-    opacity: 0.9;
-}
-
-.details {
-    font-size: 1rem;
-    line-height: 1.5;
-    opacity: 0.85;
-    margin-bottom: 25px;
-}
-
-/* --------------------------------------------------
-   PILLS
--------------------------------------------------- */
-
-.pill-row {
-    margin: 15px 0 25px 0;
-}
-
-.pill {
-    background: rgba(255, 255, 255, 0.12);
-    padding: 6px 14px;
-    border-radius: 20px;
-    color: #ffffff;
-    font-size: 0.9rem;
-    margin: 4px;
-    display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-/* --------------------------------------------------
-   SECTIONS
--------------------------------------------------- */
-
-.section {
-    margin: 30px 0;
-}
-
-.section-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    opacity: 0.95;
-}
-
-.list {
-    font-size: 1rem;
-    line-height: 1.6;
-    opacity: 0.85;
-    list-style: none;
-    padding: 0;
-}
-
-/* --------------------------------------------------
-   BUTTONS
--------------------------------------------------- */
-
-.cta-row {
-    margin: 25px 0;
-}
-
-.btn-primary,
-.btn-ghost {
-    padding: 10px 22px;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.25s ease;
-    margin: 6px;
-}
-
-/* Frosted primary button */
-.btn-primary {
-    background: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(4px);
-}
-
-.btn-primary:hover {
-    background: rgba(255, 255, 255, 0.25);
-    border-color: #ffffff;
-}
-
-/* Ghost button */
-.btn-ghost {
-    background: transparent;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-.btn-ghost:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: #ffffff;
-}
-
-/* --------------------------------------------------
-   FOOTER
--------------------------------------------------- */
-
-.footer {
-    margin-top: 40px;
-    font-size: 0.9rem;
-    opacity: 0.75;
-}
-
-.footer span {
-    display: block;
-    margin: 4px 0;
-}
-
-/* --------------------------------------------------
-   MOBILE RESPONSIVE
--------------------------------------------------- */
-
-@media (max-width: 600px) {
-    .tagline {
-        font-size: 1.6rem;
-    }
-    .subtagline {
-        font-size: 1.2rem;
-    }
-    .description {
-        font-size: 1.1rem;
-    }
-    .pill {
-        font-size: 0.85rem;
-    }
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr}
+  .plan{grid-template-columns:1fr}
+  .sectors{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .logo-panel{max-width:420px}
 }
